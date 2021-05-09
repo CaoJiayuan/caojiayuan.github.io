@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Useful scripts | Personal notes</title>
+    <meta name="description" content="">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.f544b822.css" as="style"><link rel="preload" href="/assets/js/app.754bcb0e.js" as="script"><link rel="preload" href="/assets/js/11.238a3015.js" as="script"><link rel="prefetch" href="/assets/js/2.f4cd0fb1.js"><link rel="prefetch" href="/assets/js/3.5069fe39.js"><link rel="prefetch" href="/assets/js/4.e8619931.js"><link rel="prefetch" href="/assets/js/5.5f868d67.js"><link rel="prefetch" href="/assets/js/6.56ddeddc.js"><link rel="prefetch" href="/assets/js/7.3adbe91f.js"><link rel="prefetch" href="/assets/js/8.a50a70c6.js"><link rel="prefetch" href="/assets/js/9.a6b653e2.js"><link rel="prefetch" href="/assets/js/10.8334860d.js"><link rel="prefetch" href="/assets/js/12.83bdcf24.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.f544b822.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div data-app="true" id="app-content" class="application page-main theme--light"><div class="application--wrap"><div><nav class="v-toolbar v-toolbar--dense v-toolbar--fixed theme--dark primary" style="margin-top:0px;padding-right:0px;padding-left:0px;transform:translateY(0px);z-index:100;"><div class="v-toolbar__content" style="height:48px;"><button type="button" class="hidden-md-and-up v-toolbar__side-icon v-btn v-btn--icon"><div class="v-btn__content"><i aria-hidden="true" class="v-icon material-icons">menu</i></div></button><div class="spacer"></div><div class="v-toolbar__items hidden-sm-and-down"><a href="/" class="v-btn v-btn--flat v-btn--router"><div class="v-btn__content">Home</div></a><a href="/notes/" class="v-btn--active v-btn v-btn--flat v-btn--router"><div class="v-btn__content">Notes</div></a></div></div></nav><aside class="hidden-md-and-up v-navigation-drawer v-navigation-drawer--close v-navigation-drawer--fixed v-navigation-drawer--is-mobile" style="height:100%;margin-top:0px;max-height:calc(100% - 0px);transform:translateX(-300px);width:300px;z-index:100;"><div class="v-list pt-0"><hr class="v-divider"><div><a href="/" class="v-list__tile v-list__tile--link"><div class="v-list__tile__content"><div class="v-list__tile__title">Home</div></div></a></div><div><a href="/notes/" class="primary--text v-list__tile--active v-list__tile v-list__tile--link"><div class="v-list__tile__content"><div class="v-list__tile__title">Notes</div></div></a></div></div><div class="v-navigation-drawer__border"></div></aside></div><main app="" class="v-content page-container" style="padding-top:48px;padding-right:0px;padding-bottom:0px;padding-left:0px;"><div class="v-content__wrap"><div class="container component-page fluid"><!----><div class="layout"><div class="flex xs12 lg8 offset-lg2 offset-md1"><div class="app-content v-card" style="height:undefined;"><div class="content custom"><center><h1>一些脚本</h1></center><h2 id="startup-script-centos"><a href="#startup-script-centos" aria-hidden="true" class="header-anchor">#</a> Startup script (centos)</h2><div class="language-bash line-numbers-mode"><pre class="language-bash"><code>yum <span class="token function">install</span> -y epel-release zsh <span class="token function">git</span> vim python python-pip
+yum <span class="token function">install</span> -y yum-utils device-mapper-persistent-data lvm2
+yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+yum <span class="token function">install</span> -y docker-ce
+pip <span class="token function">install</span> --upgrade --force-reinstall --no-cache-dir docker-compose
+<span class="token function">mkdir</span> /etc/docker
+<span class="token function">cat</span> <span class="token operator">&lt;&lt;</span>EOF <span class="token operator">&gt;&gt;</span> /etc/docker/daemon.json
+<span class="token punctuation">{</span>
+  <span class="token string">&quot;storage-driver&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;overlay2&quot;</span>,
+  <span class="token string">&quot;storage-opts&quot;</span><span class="token keyword">:</span> <span class="token punctuation">[</span>
+    <span class="token string">&quot;overlay2.override_kernel_check=true&quot;</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+EOF
+systemctl <span class="token function">enable</span> docker
+systemctl start docker
+pip <span class="token function">install</span> docker-compose
+sh -c <span class="token string">&quot;<span class="token variable"><span class="token variable">$(</span><span class="token function">curl</span> -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh<span class="token variable">)</span></span>&quot;</span> <span class="token comment"># use oh-my-zsh!</span>
+chsh -s /bin/zsh
+</code></pre><div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br></div></div></div></div></div></div></div></div></main></div></div></div>
+    <script src="/assets/js/11.238a3015.js" defer></script><script src="/assets/js/app.754bcb0e.js" defer></script>
+  </body>
+</html>
